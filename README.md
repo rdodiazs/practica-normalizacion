@@ -1,10 +1,10 @@
 # Normalizando una base de datos.
 
-La idea de este repositorio fue, en primer lugar, aplicar la idea central de normalizar una base datos (reducir lo más posible la redundancia de información para mejorar su gestión) y luego usarla para practicar un poco en SQL usando PostgreSQL.
+La idea de este repositorio fue, en primer lugar, aplicar la idea central de normalizar una base de datos, que es reducir lo más posible la redundancia de información para mejorar su gestión, y luego usarla para practicar un poco en PostgreSQL.
 
-La base de datos con la que trabajo es sobre la militancia en partidos políticos en Chile. Ésta es publicada por el Servicio Electoral (SERVEL), quienes la construyen a partir de la información que deben entregar estas instituciones al organismo estatal luego de realizar sus procesos de afiliación. Corresponde a la actualización del 31 de agosto de 2021 y puede ser descargada [acá](https://www.servel.cl/wp-content/uploads/2021/09/partidos20210831.csv). Más detalles sobre estas estadísticas pueden encontrarse en el [siguiente enlace](https://www.servel.cl/estadisticas-de-partidos-politicos/).
+La base de datos que utilizo contiene información descriptiva sobre el proceso de ratificación de militancia y de nuevos afiliados en partidos políticos de Chile, la que es construida y publicada por el Servicio Electoral (SERVEL). Ésta corresponde a la actualización del 31 de agosto de 2021 y puede ser descargada [acá](https://www.servel.cl/wp-content/uploads/2021/09/partidos20210831.csv). Más detalles sobre estas estadísticas pueden encontrarse en el [siguiente enlace](https://www.servel.cl/estadisticas-de-partidos-politicos/).
 
-Este conjunto de datos luce como se ve en la siguiente muestra de cinco filas:
+El conjunto de datos original luce como se ve en la siguiente muestra de cinco filas:
 
 ```
 Categoría Cedula Comuna        FECHA_RESP Partido            Rango edad Region Domicilio Región      Sexo     DV
@@ -16,9 +16,9 @@ Nuevo     0      Alto Hospicio 08312021   NUEVO TIEMPO       20-24 años De Tara
 Nuevo     0      Alto Hospicio 08312021   NUEVO TIEMPO       20-24 años De Tarapaca      De Tarapaca Femenino 0
 ```
 
-Debido a que no entregan información relevante y, además, para aprovechar de reducir el peso del archivo, decidí quitar las siguientes columnas: `Cedula`, `FECHA_RESP` y `DV`. También saqué `Region Domicilio` ya que como mi idea es simplemente practicar, consideré que bastaba con `Región`.
+Para trabajar con esta base de datos, lo primero que hice fue quitar las columnas `Cedula`, `FECHA_RESP`, `DV` y `Region Domicilio`. Las tres primeras no entregan información relevante y la última la saqué porque mi idea es solo practicar, así que consideré que solo bastaba con el atributo `Región`.
 
-Como la mayoría de las columnas restantes tiene información redundante (en cada una se repiten datos), decidí crear siete tablas:
+En cuanto a las columnas restantes de la base de datos, todas contienen información redundante, así que a partir de ellas cree las siguientes tablas:
 
 - `categoria`.
 - `genero`.
@@ -28,11 +28,11 @@ Como la mayoría de las columnas restantes tiene información redundante (en cad
 - `partidos`.
 - `afiliacion`.
 
-Estas tablas las almacené en una base de datos llamada `afiliacion_db` y la relación entre ellas está dada como se observa en el siguiente diagrama.
+La relación de estas tablas se observa en el diagrama de a continuación.
 
-![Diagrama de relación de tablas](./img/diagrama-relaciones.png).
+![Diagrama de relación de tablas.](./img/diagrama-relaciones.png)
 
-Para hacer el proceso más rápido, completé las tablas de la base de datos `afiliacion_db` creando previamente archivos `.csv` usando el lenguaje de programación R, cuyos scripts se pueden encontrar en la carpeta [`datos`](./datos/).
+Usando el lenguaje de programación R limpié un poco la base de datos y luego cree las tablas mencionadas arriba, las que exporté como archivos `.csv` a la carpeta [tablas](./tablas/). Los scripts de este proceso están en el directorio [datos](./datos/).
 
-Por otra parte, los scripts para crear las tablas y ejecutar algunas consultas (*queries*) en PostgreSQL están en el directorio [`scripts`](./scripts/).
+Finalmente, en PostgreSQL cree una base de datos llamada `afiliacion_db` y en ella almacené las tablas, las que llené importando los archivos que están en [tablas](./tablas/). El script de dicho proceso y aquel donde practico un poco realizando algunas consultas están en la carpeta [`scripts`](./scripts/).
 
