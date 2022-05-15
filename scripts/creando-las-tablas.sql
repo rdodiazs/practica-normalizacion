@@ -42,7 +42,7 @@ CREATE TABLE rango_edad (
   rango_edad VARCHAR(20) UNIQUE NOT NULL
 );
 
-\copy rango_edad (id, rango_edad) FROM '..\tables\rango_edad.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy rango_edad (id, rango_edad) FROM '..\tables\rango-edad.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 4. Partidos.
 DROP TABLE IF EXISTS partidos;
@@ -104,5 +104,5 @@ CREATE TABLE afiliacion (
 );
 
 -- Son 584758 filas, así que hay que esperar un pequeño momento :)
-\copy afiliacion (id, categoria_id, partido_id, sigla_id, edad_id, genero_id, comuna_id, region_id) FROM '..\tables\afiliacion_partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy afiliacion (id, categoria_id, partido_id, sigla_id, edad_id, genero_id, comuna_id, region_id) FROM '..\tables\afiliacion-partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
