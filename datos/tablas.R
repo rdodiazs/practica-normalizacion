@@ -1,5 +1,12 @@
-# options(help_type = "text")
+#############################################
+#       Rscript para crear las tablas       #
+#############################################
 
+# En este script se encuentra el código para crear las tablas que son
+# almacenadas en archivos `.csv` y guardadas en la carpeta `..\tablas`.
+
+
+# 1. Carga de datos y creación de la función `create_table`. ----
 if(!file.exists("afiliacion_data.rds")) source(file = "limpieza-datos.R")
 
 afiliacion_df <- readRDS(file = "afiliacion_data.rds")
@@ -24,19 +31,19 @@ create_table <- function(col) {
 }
 
 
-# Tablas ----
+# 2. Creando las tablas. ----
 
-# 1. Categoría.
+# 2.1 Categoría.
 categoria <- create_table("categoria")
 
-# 2. Género.
+# 2.2 Género.
 genero <- create_table("genero")
 
-# 3. Rango de edad.
+# 2.3 Rango de edad.
 rango_edad <- create_table("rango_edad")
 rango_edad$rango_edad <- sort(x = rango_edad$rango_edad)
 
-# 4. Región.
+# 2.4 Región.
 regiones <- create_table("region")
 
 region <- regiones$region
@@ -50,7 +57,7 @@ for(i in seq_len(length(region))) {
 
 rm(region, region_index, i)
 
-# 5. Comuna.
+# 2.5 Comuna.
 comunas <- create_table(c("comuna", "region"))
 
 id_region <- regiones$id
@@ -68,11 +75,10 @@ names(comunas)[3] <- "region_id"
 
 rm(i, region_id, id_region)
 
-# 6. Partidos.
+# 2.6 Partidos.
 partidos <- create_table(c("partido", "sigla_partido"))
 
-#7. Afiliación partidos.
-
+# 2.7 Afiliación partidos.
 length_df <-nrow(afiliacion_df)
 
 categoria_id <- integer(length = length_df)
@@ -113,20 +119,27 @@ rm(length_df, i, categoria_id, partido_id, edad_id,
    genero_id, comuna_id, region_id)
 
 
-# Creando los archivos .csv ----
-table_name <- ls()[-c(1, 5)]
-path_folder <- "../tables/"
+# 3. Creando los archivos .csv ----
+obj_names <- c("afiliacion_partidos", "categoria", "comunas", "genero",
+              "partidos", "rango_edad", "regiones")
+table_names <- gsub(pattern = "_", replacement = "-", x = obj_name)
+path_folder <- "../tablas"
 
 if(!dir.exists(path = path_folder)) dir.create(path = path_folder)
 
-for(i in seq_len(length(table_name))) {
+for(i in seq_len(length(obj_names))) {
   write.csv(
-    x = get(x = table_name[i]),
-    file = paste0(path_folder, table_name[i], ".csv"),
+    x = get(x = obj_names[i]),
+    file = file.path(path_folder, paste0(table_names[i], ".csv")),
     row.names = FALSE,
     fileEncoding = "UTF-8"
   )
 }
 
-rm(table_name, path_folder, i)
+rm(obj_names, table_names, path_folder, i)
+
+
+# 4. Limpieza final. ----
+rm(afiliacion_df, afiliacion_partidos, categoria, comunas, create_table,
+   genero, partidos, rango_edad, regiones)
 
