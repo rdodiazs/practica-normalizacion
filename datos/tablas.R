@@ -115,8 +115,17 @@ afiliacion_partidos <- data.frame(
   edad_id, genero_id, comuna_id, region_id
 )
 
+# Tomo una muestra aleatoria de 150000 filas para no usar mucha memoria.
+set.seed(2022)
+muestra <- sample(x = nrow(afiliacion_partidos), size = 1.5e+05)
+afiliacion_partidos <- afiliacion_partidos[muestra, ]
+
+rownames(afiliacion_partidos) <- NULL # Reinicio nombre de filas.
+
+afiliacion_partidos$id <- as.integer(rownames(afiliacion_partidos))
+
 rm(length_df, i, categoria_id, partido_id, edad_id,
-   genero_id, comuna_id, region_id)
+   genero_id, comuna_id, region_id, muestra)
 
 
 # 3. Creando los archivos .csv ----

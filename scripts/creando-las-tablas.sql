@@ -103,6 +103,6 @@ CREATE TABLE afiliacion (
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- Son 584758 filas, así que hay que esperar un pequeño momento :)
+-- Son 150000 filas, así que hay que esperar un pequeño momento :)
 \copy afiliacion (id, categoria_id, partido_id, sigla_id, edad_id, genero_id, comuna_id, region_id) FROM '..\tablas\afiliacion-partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
