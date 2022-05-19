@@ -22,7 +22,7 @@ CREATE TABLE categoria (
   categoria VARCHAR(20) UNIQUE NOT NULL
 );
 
-\copy categoria (id, categoria) FROM '..\tables\categoria.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy categoria (id, categoria) FROM '..\tablas\categoria.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 2. Género.
 DROP TABLE IF EXISTS genero;
@@ -32,7 +32,7 @@ CREATE TABLE genero (
   genero VARCHAR(15) UNIQUE NOT NULL
 );
 
-\copy genero (id, genero) FROM '..\tables\genero.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy genero (id, genero) FROM '..\tablas\genero.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 3. Rango etáreo.
 DROP TABLE IF EXISTS rango_edad;
@@ -42,7 +42,7 @@ CREATE TABLE rango_edad (
   rango_edad VARCHAR(20) UNIQUE NOT NULL
 );
 
-\copy rango_edad (id, rango_edad) FROM '..\tables\rango-edad.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy rango_edad (id, rango_edad) FROM '..\tablas\rango-edad.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 4. Partidos.
 DROP TABLE IF EXISTS partidos;
@@ -54,7 +54,7 @@ CREATE TABLE partidos (
   UNIQUE (partido, sigla_partido)
 );
 
-\copy partidos (id, partido, sigla_partido) FROM '..\tables\partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy partidos (id, partido, sigla_partido) FROM '..\tablas\partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 5. Regiones.
 DROP TABLE IF EXISTS regiones;
@@ -64,7 +64,7 @@ CREATE TABLE regiones (
   region VARCHAR(50) UNIQUE NOT NULL
 );
 
-\copy regiones (id, region) FROM '..\tables\regiones.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy regiones (id, region) FROM '..\tablas\regiones.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 6. Comunas.
 DROP TABLE IF EXISTS comunas;
@@ -80,7 +80,7 @@ CREATE TABLE comunas (
     ON DELETE CASCADE
 );
 
-\copy comunas (id, comuna, region_id) FROM '..\tables\comunas.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy comunas (id, comuna, region_id) FROM '..\tablas\comunas.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 7. Afiliacion partidos.
 DROP TABLE IF EXISTS afiliacion;
@@ -104,5 +104,5 @@ CREATE TABLE afiliacion (
 );
 
 -- Son 584758 filas, así que hay que esperar un pequeño momento :)
-\copy afiliacion (id, categoria_id, partido_id, sigla_id, edad_id, genero_id, comuna_id, region_id) FROM '..\tables\afiliacion-partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy afiliacion (id, categoria_id, partido_id, sigla_id, edad_id, genero_id, comuna_id, region_id) FROM '..\tablas\afiliacion-partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
