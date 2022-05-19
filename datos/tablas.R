@@ -111,8 +111,8 @@ for(i in seq_len(length_df)) {
 }
 
 afiliacion_partidos <- data.frame(
-  id = 1:length_df, categoria_id, partido_id, sigla_id = partido_id,
-  edad_id, genero_id, comuna_id, region_id
+  id = 1:length_df, categoria_id, partido_id, edad_id, genero_id,
+  comuna_id, region_id
 )
 
 # Tomo una muestra aleatoria de 150000 filas para no usar mucha memoria.

@@ -91,8 +91,6 @@ CREATE TABLE afiliacion (
     ON DELETE CASCADE ON UPDATE CASCADE,
   partido_id INTEGER NOT NULL REFERENCES partidos (id)
     ON DELETE CASCADE ON UPDATE CASCADE,
-  sigla_id INTEGER NOT NULL REFERENCES partidos (id)
-    ON DELETE CASCADE ON UPDATE CASCADE,
   edad_id INTEGER NOT NULL REFERENCES rango_edad (id)
     ON DELETE CASCADE ON UPDATE CASCADE,
   genero_id INTEGER NOT NULL REFERENCES genero (id)
@@ -104,5 +102,5 @@ CREATE TABLE afiliacion (
 );
 
 -- Son 150000 filas, así que hay que esperar un pequeño momento :)
-\copy afiliacion (id, categoria_id, partido_id, sigla_id, edad_id, genero_id, comuna_id, region_id) FROM '..\tablas\afiliacion-partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy afiliacion (id, categoria_id, partido_id, edad_id, genero_id, comuna_id, region_id) FROM '..\tablas\afiliacion-partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
