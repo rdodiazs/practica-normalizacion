@@ -15,62 +15,62 @@ CREATE DATABASE afiliacion_db;
 */
 
 -- 1. Categoria.
-DROP TABLE IF EXISTS categoria;
+DROP TABLE IF EXISTS categoria CASCADE; -- CASCADE quita la FK de tablas vinculadas a esta.
 
 CREATE TABLE categoria (
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY,
   categoria VARCHAR(20) UNIQUE NOT NULL
 );
 
-\copy categoria (id, categoria) FROM '..\tablas\categoria.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy categoria (categoria) FROM '..\tablas\categoria.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 2. Género.
-DROP TABLE IF EXISTS genero;
+DROP TABLE IF EXISTS genero CASCADE;
 
 CREATE TABLE genero (
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY,
   genero VARCHAR(15) UNIQUE NOT NULL
 );
 
-\copy genero (id, genero) FROM '..\tablas\genero.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy genero (genero) FROM '..\tablas\genero.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 3. Rango etáreo.
-DROP TABLE IF EXISTS rango_edad;
+DROP TABLE IF EXISTS rango_edad CASCADE;
 
 CREATE TABLE rango_edad (
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY,
   rango_edad VARCHAR(20) UNIQUE NOT NULL
 );
 
-\copy rango_edad (id, rango_edad) FROM '..\tablas\rango-edad.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy rango_edad (rango_edad) FROM '..\tablas\rango-edad.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 4. Partidos.
-DROP TABLE IF EXISTS partidos;
+DROP TABLE IF EXISTS partidos CASCADE;
 
 CREATE TABLE partidos (
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY,
   partido VARCHAR(50) NOT NULL,
-  sigla_partido VARCHAR(15) NOT NULL
+  sigla_partido VARCHAR(15) NOT NULL,
   UNIQUE (partido, sigla_partido)
 );
 
-\copy partidos (id, partido, sigla_partido) FROM '..\tablas\partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy partidos (partido, sigla_partido) FROM '..\tablas\partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 5. Regiones.
-DROP TABLE IF EXISTS regiones;
+DROP TABLE IF EXISTS regiones CASCADE;
 
 CREATE TABLE regiones (
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY,
   region VARCHAR(50) UNIQUE NOT NULL
 );
 
-\copy regiones (id, region) FROM '..\tablas\regiones.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy regiones (region) FROM '..\tablas\regiones.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 6. Comunas.
-DROP TABLE IF EXISTS comunas;
+DROP TABLE IF EXISTS comunas CASCADE;
 
 CREATE TABLE comunas (
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY,
   comuna VARCHAR(70) UNIQUE NOT NULL,
   region_id INTEGER NOT NULL,
   CONSTRAINT region_id_fkey
@@ -80,13 +80,13 @@ CREATE TABLE comunas (
     ON DELETE CASCADE
 );
 
-\copy comunas (id, comuna, region_id) FROM '..\tablas\comunas.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy comunas (comuna, region_id) FROM '..\tablas\comunas.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
 -- 7. Afiliacion partidos.
-DROP TABLE IF EXISTS afiliacion;
+DROP TABLE IF EXISTS afiliacion CASCADE;
 
 CREATE TABLE afiliacion (
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY,
   categoria_id INTEGER NOT NULL REFERENCES categoria (id)
     ON DELETE CASCADE ON UPDATE CASCADE,
   partido_id INTEGER NOT NULL REFERENCES partidos (id)
@@ -102,5 +102,5 @@ CREATE TABLE afiliacion (
 );
 
 -- Son 150000 filas, así que hay que esperar un pequeño momento :)
-\copy afiliacion (id, categoria_id, partido_id, edad_id, genero_id, comuna_id, region_id) FROM '..\tablas\afiliacion-partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
+\copy afiliacion (categoria_id, partido_id, edad_id, genero_id, comuna_id, region_id) FROM '..\tablas\afiliacion-partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
