@@ -12,22 +12,15 @@ if(!file.exists("afiliacion_data.rds")) source(file = "limpieza-datos.R")
 afiliacion_df <- readRDS(file = "afiliacion_data.rds")
 
 create_table <- function(col) {
-  stopifnot(is.character(col))
-  stopifnot(col %in% names(afiliacion_df))
+  # Regresa un data.frame debido a `drop = FALSE` en `subset()`.
+  unique_values <- unique(
+    x = subset(x = afiliacion_df, select = col)
+  )
 
-  values <- unique(x = afiliacion_df[, col])
+  # Reinicio nombres de filas.
+  rownames(unique_values) <- NULL
 
-  if(class(values) == "data.frame") {
-    rownames(values) <- NULL
-    id <- 1:nrow(values)
-    df <- cbind(id, values)
-  } else {
-    id <- 1:length(values)
-    df <- data.frame(id, values)
-    names(df)[2] <- col
-  }
-  
-  return(df)
+  unique_values
 }
 
 
@@ -60,18 +53,18 @@ rm(region, region_index, i)
 # 2.5 Comuna.
 comunas <- create_table(c("comuna", "region"))
 
-id_region <- regiones$id
+id_region <- as.integer(rownames(regiones))
 
-region_id <- integer(length = length(comunas$comuna))
+region_id <- integer(length = nrow(comunas))
 
-for(i in seq_len(length(comunas$comuna))) {
+for(i in seq_len(nrow(comunas))) {
   region_id[i] <- id_region[
     comunas$region[i] == regiones$region
   ]
 }
 
-comunas$region <- region_id
-names(comunas)[3] <- "region_id"
+comunas$region_id <- region_id
+comunas <- comunas[, -2]
 
 rm(i, region_id, id_region)
 
@@ -79,40 +72,42 @@ rm(i, region_id, id_region)
 partidos <- create_table(c("partido", "sigla_partido"))
 
 # 2.7 Afiliación partidos.
-length_df <-nrow(afiliacion_df)
+length_df <- nrow(afiliacion_df)
 
-categoria_id <- integer(length = length_df)
-partido_id <- integer(length = length_df)
-edad_id <- integer(length = length_df)
-genero_id <- integer(length = length_df)
-comuna_id <- integer(length = length_df)
-region_id <- integer(length = length_df)
+categoria_id <- partido_id <- edad_id <-
+genero_id <- comuna_id <- region_id <- integer(length = length_df)
+
+categoria_index <- as.integer(rownames(categoria))
+partido_index <- as.integer(rownames(partidos))
+edad_index <- as.integer(rownames(rango_edad))
+genero_index <- as.integer(rownames(genero))
+comuna_index <- as.integer(rownames(comunas))
+region_index <- as.integer(rownames(regiones))
 
 # ¿Se podría hacer mejor? Quizá...
 for(i in seq_len(length_df)) {
-  categoria_id[i] <- categoria$id[
+  categoria_id[i] <- categoria_index[
     afiliacion_df$categoria[i] == categoria$categoria
   ]
-  partido_id[i] <- partidos$id[
+  partido_id[i] <- partido_index[
     afiliacion_df$partido[i] == partidos$partido
   ]
-  edad_id[i] <- rango_edad$id[
+  edad_id[i] <- edad_index[
       afiliacion_df$rango_edad[i] == rango_edad$rango_edad
   ]
-  genero_id[i] <- genero$id[
+  genero_id[i] <- genero_index[
       afiliacion_df$genero[i] == genero$genero
   ]
-  comuna_id[i] <- comunas$id[
+  comuna_id[i] <- comuna_index[
       afiliacion_df$comuna[i] == comunas$comuna
   ]
-  region_id[i] <- regiones$id[
+  region_id[i] <- region_index[
       afiliacion_df$region[i] == regiones$region
   ]
 }
 
 afiliacion_partidos <- data.frame(
-  id = 1:length_df, categoria_id, partido_id, edad_id, genero_id,
-  comuna_id, region_id
+  categoria_id, partido_id, edad_id, genero_id, comuna_id, region_id
 )
 
 # Tomo una muestra aleatoria de 150000 filas para no usar mucha memoria.
@@ -125,13 +120,15 @@ rownames(afiliacion_partidos) <- NULL # Reinicio nombre de filas.
 afiliacion_partidos$id <- as.integer(rownames(afiliacion_partidos))
 
 rm(length_df, i, categoria_id, partido_id, edad_id,
-   genero_id, comuna_id, region_id, muestra)
+   genero_id, comuna_id, region_id, muestra, categoria_index,
+   partido_index, edad_index, genero_index, comuna_index,
+   region_index)
 
 
 # 3. Creando los archivos .csv ----
 obj_names <- c("afiliacion_partidos", "categoria", "comunas", "genero",
               "partidos", "rango_edad", "regiones")
-table_names <- gsub(pattern = "_", replacement = "-", x = obj_name)
+table_names <- gsub(pattern = "_", replacement = "-", x = obj_names)
 path_folder <- "../tablas"
 
 if(!dir.exists(path = path_folder)) dir.create(path = path_folder)

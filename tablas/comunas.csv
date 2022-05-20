@@ -1,348 +1,348 @@
-"id","comuna","region_id"
-1,"Alto Hospicio",2
-2,"Iquique",2
-3,"Camiña",2
-4,"Colchane",2
-5,"Huara",2
-6,"Pozo Almonte",2
-7,"Nogales",6
-8,"Quilpue",6
-9,"Valparaiso",6
-10,"Algarrobo",6
-11,"Calera",6
-12,"Casablanca",6
-13,"Concon",6
-14,"La Cruz",6
-15,"Llaillay",6
-16,"Los Andes",6
-17,"Puchuncavi",6
-18,"Quintero",6
-19,"Rinconada",6
-20,"San Felipe",6
-21,"Villa Alemana",6
-22,"Viña Del Mar",6
-23,"Cartagena",6
-24,"Quillota",6
-25,"San Esteban",6
-26,"Cabildo",6
-27,"La Ligua",6
-28,"San Antonio",6
-29,"Zapallar",6
-30,"Calle Larga",6
-31,"El Quisco",6
-32,"Limache",6
-33,"Olmue",6
-34,"",17
-35,"Aysen",15
-36,"Cisnes",15
-37,"Cochrane",15
-38,"Coyhaique",15
-39,"Lago Verde",15
-40,"Rio Ibañez",15
-41,"Chile Chico",15
-42,"Maipu",7
-43,"Maria Pinto",7
-44,"Melipilla",7
-45,"Padre Hurtado",7
-46,"Paine",7
-47,"Pedro Aguirre Cerda",7
-48,"Peñaflor",7
-49,"Peñalolen",7
-50,"Providencia",7
-51,"Pudahuel",7
-52,"Puente Alto",7
-53,"Quilicura",7
-54,"Quinta Normal",7
-55,"Recoleta",7
-56,"Renca",7
-57,"San Bernardo",7
-58,"San Joaquin",7
-59,"San Miguel",7
-60,"San Pedro",7
-61,"San Ramon",7
-62,"Santiago",7
-63,"Talagante",7
-64,"Vitacura",7
-65,"O'Higgins",15
-66,"Guaitecas",15
-67,"Arica",1
-68,"Camarones",1
-69,"General Lagos",1
-70,"Lampa",7
-71,"Colina",7
-72,"Conchali",7
-73,"Talcahuano",11
-74,"Concepcion",11
-75,"Lota",11
-76,"Coronel",11
-77,"Cabrero",11
-78,"Chiguayante",11
-79,"San Pedro De La Paz",11
-80,"Talca",9
-81,"Rengo",8
-82,"San Clemente",9
-83,"Pelarco",9
-84,"Constitucion",9
-85,"Molina",9
-86,"La Granja",7
-87,"Curacavi",7
-88,"La Pintana",7
-89,"Sagrada Familia",9
-90,"Isla De Maipo",7
-91,"La Reina",7
-92,"Lo Barnechea",7
-93,"Ñuñoa",7
-94,"El Carmen",10
-95,"Curanilahue",11
-96,"Quilleco",11
-97,"Hijuelas",6
-98,"Antofagasta",3
-99,"Calama",3
-100,"Tocopilla",3
-101,"Maria Elena",3
-102,"Sierra Gorda",3
-103,"Los Alamos",11
-104,"Chillan",10
-105,"Hualpen",11
-106,"Temuco",12
-107,"Teodoro Schmidt",12
-108,"Freire",12
-109,"Villarrica",12
-110,"Pitrufquen",12
-111,"Linares",9
-112,"Maule",9
-113,"San Javier",9
-114,"Colbun",9
-115,"Retiro",9
-116,"Curico",9
-117,"Cauquenes",9
-118,"La Florida",7
-119,"El Bosque",7
-120,"El Monte",7
-121,"Estacion Central",7
-122,"Independencia",7
-123,"Calera De Tango",7
-124,"Huechuraba",7
-125,"La Cisterna",7
-126,"Las Condes",7
-127,"Macul",7
-128,"San Jose De Maipo",7
-129,"Cerrillos",7
-130,"Parral",9
-131,"Villa Alegre",9
-132,"Yerbas Buenas",9
-133,"Empedrado",9
-134,"Curepto",9
-135,"San Rafael",9
-136,"Chanco",9
-137,"Vichuquen",9
-138,"Rio Claro",9
-139,"Lo Espejo",7
-140,"Buin",7
-141,"Cerro Navia",7
-142,"Lo Prado",7
-143,"Pirque",7
-144,"Putre",1
-145,"Mejillones",3
-146,"Taltal",3
-147,"San Pedro De Atacama",3
-148,"Copiapo",4
-149,"Chañaral",4
-150,"Diego De Almagro",4
-151,"Vallenar",4
-152,"Tierra Amarilla",4
-153,"Huasco",4
-154,"Caldera",4
-155,"Canela",5
-156,"Coquimbo",5
-157,"La Serena",5
-158,"Monte Patria",5
-159,"Ovalle",5
-160,"Vicuña",5
-161,"Illapel",5
-162,"Combarbala",5
-163,"La Higuera",5
-164,"Punitaqui",5
-165,"Los Vilos",5
-166,"Salamanca",5
-167,"Carahue",12
-168,"Collipulli",12
-169,"Curacautin",12
-170,"Padre Las Casas",12
-171,"Saavedra",12
-172,"Cholchol",12
-173,"Angol",12
-174,"Gorbea",12
-175,"Pucon",12
-176,"Lautaro",12
-177,"Los Sauces",12
-178,"Lumaco",12
-179,"Renaico",12
-180,"Traiguen",12
-181,"Victoria",12
-182,"Cunco",12
-183,"Nueva Imperial",12
-184,"Loncoche",12
-185,"Osorno",14
-186,"Puerto Montt",14
-187,"Ancud",14
-188,"Cochamo",14
-189,"Puyehue",14
-190,"Rio Negro",14
-191,"Llanquihue",14
-192,"Castro",14
-193,"Chonchi",14
-194,"Calbuco",14
-195,"Futaleufu",14
-196,"Hualaihue",14
-197,"San Pablo",14
-198,"Fresia",14
-199,"Los Muermos",14
-200,"Puerto Varas",14
-201,"Frutillar",14
-202,"Ollague",3
-203,"Alto Del Carmen",4
-204,"Freirina",4
-205,"Santa Maria",6
-206,"Santo Domingo",6
-207,"Petorca",6
-208,"Putaendo",6
-209,"El Tabo",6
-210,"Catemu",6
-211,"Papudo",6
-212,"Bulnes",10
-213,"Chillan Viejo",10
-214,"Coihueco",10
-215,"Pemuco",10
-216,"Pinto",10
-217,"Quirihue",10
-218,"San Carlos",10
-219,"San Nicolas",10
-220,"Ñiquen",10
-221,"San Ignacio",10
-222,"Coelemu",10
-223,"Los Angeles",11
-224,"Santa Juana",11
-225,"Tome",11
-226,"Mulchen",11
-227,"Arauco",11
-228,"Lebu",11
-229,"Penco",11
-230,"Cañete",11
-231,"Contulmo",11
-232,"Laja",11
-233,"Nacimiento",11
-234,"Negrete",11
-235,"San Rosendo",11
-236,"San Vicente",8
-237,"Nancagua",8
-238,"Melipeuco",12
-239,"Hualqui",11
-240,"Tirua",11
-241,"Rauco",9
-242,"Teno",9
-243,"San Fernando",8
-244,"Chimbarongo",8
-245,"Ranquil",10
-246,"Rio Hurtado",5
-247,"Vilcun",12
-248,"Coltauco",8
-249,"Rancagua",8
-250,"Doñihue",8
-251,"San Juan De La Costa",14
-252,"Paiguano",5
-253,"Valdivia",13
-254,"Tiltil",7
-255,"Puerto Octay",14
-256,"La Union",13
-257,"Mariquina",13
-258,"Paillaco",13
-259,"Lanco",13
-260,"Corral",13
-261,"Los Lagos",13
-262,"Rio Bueno",13
-263,"Futrono",13
-264,"Panguipulli",13
-265,"Lago Ranco",13
-266,"Punta Arenas",16
-267,"Porvenir",16
-268,"Rio Verde",16
-269,"Natales",16
-270,"Laguna Blanca",16
-271,"Quillon",10
-272,"Yungay",10
-273,"Florida",11
-274,"Tucapel",11
-275,"Yumbel",11
-276,"Mostazal",8
-277,"Quinta De Tilcoco",8
-278,"La Estrella",8
-279,"Navidad",8
-280,"Graneros",8
-281,"Lolol",8
-282,"Paredones",8
-283,"Santa Cruz",8
-284,"Peralillo",8
-285,"Pichidegua",8
-286,"Pichilemu",8
-287,"Las Cabras",8
-288,"Palmilla",8
-289,"Machali",8
-290,"Marchigue",8
-291,"Longavi",9
-292,"Pelluhue",9
-293,"Romeral",9
-294,"Pencahue",9
-295,"Isla De Pascua",6
-296,"Pica",2
-297,"Trehuaco",10
-298,"Galvarino",12
-299,"Andacollo",5
-300,"Curarrehue",12
-301,"Ercilla",12
-302,"Lonquimay",12
-303,"Palena",14
-304,"Purranque",14
-305,"Quellon",14
-306,"Quinchao",14
-307,"Antuco",11
-308,"Coinco",8
-309,"Requinoa",8
-310,"Codegua",8
-311,"Malloa",8
-312,"Puren",12
-313,"Olivar",8
-314,"Chepica",8
-315,"Peumo",8
-316,"Pumanque",8
-317,"Tortel",15
-318,"Perquenco",12
-319,"Tolten",12
-320,"Maullin",14
-321,"Queilen",14
-322,"Chaiten",14
-323,"Curaco De Velez",14
-324,"Dalcahue",14
-325,"Quemchi",14
-326,"Mafil",13
-327,"Cabo De Hornos(Ex-Navarino)",16
-328,"Timaukel",16
-329,"Torres Del Paine",16
-330,"Panquehue",6
-331,"Alto Biobio",11
-332,"Santa Barbara",11
-333,"Placilla",8
-334,"Licanten",9
-335,"Alhue",7
-336,"Puqueldon",14
-337,"San Gregorio",16
-338,"Juan Fernandez",6
-339,"Portezuelo",10
-340,"Cobquecura",10
-341,"San Fabian",10
-342,"Quilaco",11
-343,"Ninhue",10
-344,"Litueche",8
-345,"Hualañe",9
-346,"Primavera",16
-347,"Antartica",16
+"comuna","region_id"
+"Alto Hospicio",2
+"Iquique",2
+"Camiña",2
+"Colchane",2
+"Huara",2
+"Pozo Almonte",2
+"Nogales",6
+"Quilpue",6
+"Valparaiso",6
+"Algarrobo",6
+"Calera",6
+"Casablanca",6
+"Concon",6
+"La Cruz",6
+"Llaillay",6
+"Los Andes",6
+"Puchuncavi",6
+"Quintero",6
+"Rinconada",6
+"San Felipe",6
+"Villa Alemana",6
+"Viña Del Mar",6
+"Cartagena",6
+"Quillota",6
+"San Esteban",6
+"Cabildo",6
+"La Ligua",6
+"San Antonio",6
+"Zapallar",6
+"Calle Larga",6
+"El Quisco",6
+"Limache",6
+"Olmue",6
+"",17
+"Aysen",15
+"Cisnes",15
+"Cochrane",15
+"Coyhaique",15
+"Lago Verde",15
+"Rio Ibañez",15
+"Chile Chico",15
+"Maipu",7
+"Maria Pinto",7
+"Melipilla",7
+"Padre Hurtado",7
+"Paine",7
+"Pedro Aguirre Cerda",7
+"Peñaflor",7
+"Peñalolen",7
+"Providencia",7
+"Pudahuel",7
+"Puente Alto",7
+"Quilicura",7
+"Quinta Normal",7
+"Recoleta",7
+"Renca",7
+"San Bernardo",7
+"San Joaquin",7
+"San Miguel",7
+"San Pedro",7
+"San Ramon",7
+"Santiago",7
+"Talagante",7
+"Vitacura",7
+"O'Higgins",15
+"Guaitecas",15
+"Arica",1
+"Camarones",1
+"General Lagos",1
+"Lampa",7
+"Colina",7
+"Conchali",7
+"Talcahuano",11
+"Concepcion",11
+"Lota",11
+"Coronel",11
+"Cabrero",11
+"Chiguayante",11
+"San Pedro De La Paz",11
+"Talca",9
+"Rengo",8
+"San Clemente",9
+"Pelarco",9
+"Constitucion",9
+"Molina",9
+"La Granja",7
+"Curacavi",7
+"La Pintana",7
+"Sagrada Familia",9
+"Isla De Maipo",7
+"La Reina",7
+"Lo Barnechea",7
+"Ñuñoa",7
+"El Carmen",10
+"Curanilahue",11
+"Quilleco",11
+"Hijuelas",6
+"Antofagasta",3
+"Calama",3
+"Tocopilla",3
+"Maria Elena",3
+"Sierra Gorda",3
+"Los Alamos",11
+"Chillan",10
+"Hualpen",11
+"Temuco",12
+"Teodoro Schmidt",12
+"Freire",12
+"Villarrica",12
+"Pitrufquen",12
+"Linares",9
+"Maule",9
+"San Javier",9
+"Colbun",9
+"Retiro",9
+"Curico",9
+"Cauquenes",9
+"La Florida",7
+"El Bosque",7
+"El Monte",7
+"Estacion Central",7
+"Independencia",7
+"Calera De Tango",7
+"Huechuraba",7
+"La Cisterna",7
+"Las Condes",7
+"Macul",7
+"San Jose De Maipo",7
+"Cerrillos",7
+"Parral",9
+"Villa Alegre",9
+"Yerbas Buenas",9
+"Empedrado",9
+"Curepto",9
+"San Rafael",9
+"Chanco",9
+"Vichuquen",9
+"Rio Claro",9
+"Lo Espejo",7
+"Buin",7
+"Cerro Navia",7
+"Lo Prado",7
+"Pirque",7
+"Putre",1
+"Mejillones",3
+"Taltal",3
+"San Pedro De Atacama",3
+"Copiapo",4
+"Chañaral",4
+"Diego De Almagro",4
+"Vallenar",4
+"Tierra Amarilla",4
+"Huasco",4
+"Caldera",4
+"Canela",5
+"Coquimbo",5
+"La Serena",5
+"Monte Patria",5
+"Ovalle",5
+"Vicuña",5
+"Illapel",5
+"Combarbala",5
+"La Higuera",5
+"Punitaqui",5
+"Los Vilos",5
+"Salamanca",5
+"Carahue",12
+"Collipulli",12
+"Curacautin",12
+"Padre Las Casas",12
+"Saavedra",12
+"Cholchol",12
+"Angol",12
+"Gorbea",12
+"Pucon",12
+"Lautaro",12
+"Los Sauces",12
+"Lumaco",12
+"Renaico",12
+"Traiguen",12
+"Victoria",12
+"Cunco",12
+"Nueva Imperial",12
+"Loncoche",12
+"Osorno",14
+"Puerto Montt",14
+"Ancud",14
+"Cochamo",14
+"Puyehue",14
+"Rio Negro",14
+"Llanquihue",14
+"Castro",14
+"Chonchi",14
+"Calbuco",14
+"Futaleufu",14
+"Hualaihue",14
+"San Pablo",14
+"Fresia",14
+"Los Muermos",14
+"Puerto Varas",14
+"Frutillar",14
+"Ollague",3
+"Alto Del Carmen",4
+"Freirina",4
+"Santa Maria",6
+"Santo Domingo",6
+"Petorca",6
+"Putaendo",6
+"El Tabo",6
+"Catemu",6
+"Papudo",6
+"Bulnes",10
+"Chillan Viejo",10
+"Coihueco",10
+"Pemuco",10
+"Pinto",10
+"Quirihue",10
+"San Carlos",10
+"San Nicolas",10
+"Ñiquen",10
+"San Ignacio",10
+"Coelemu",10
+"Los Angeles",11
+"Santa Juana",11
+"Tome",11
+"Mulchen",11
+"Arauco",11
+"Lebu",11
+"Penco",11
+"Cañete",11
+"Contulmo",11
+"Laja",11
+"Nacimiento",11
+"Negrete",11
+"San Rosendo",11
+"San Vicente",8
+"Nancagua",8
+"Melipeuco",12
+"Hualqui",11
+"Tirua",11
+"Rauco",9
+"Teno",9
+"San Fernando",8
+"Chimbarongo",8
+"Ranquil",10
+"Rio Hurtado",5
+"Vilcun",12
+"Coltauco",8
+"Rancagua",8
+"Doñihue",8
+"San Juan De La Costa",14
+"Paiguano",5
+"Valdivia",13
+"Tiltil",7
+"Puerto Octay",14
+"La Union",13
+"Mariquina",13
+"Paillaco",13
+"Lanco",13
+"Corral",13
+"Los Lagos",13
+"Rio Bueno",13
+"Futrono",13
+"Panguipulli",13
+"Lago Ranco",13
+"Punta Arenas",16
+"Porvenir",16
+"Rio Verde",16
+"Natales",16
+"Laguna Blanca",16
+"Quillon",10
+"Yungay",10
+"Florida",11
+"Tucapel",11
+"Yumbel",11
+"Mostazal",8
+"Quinta De Tilcoco",8
+"La Estrella",8
+"Navidad",8
+"Graneros",8
+"Lolol",8
+"Paredones",8
+"Santa Cruz",8
+"Peralillo",8
+"Pichidegua",8
+"Pichilemu",8
+"Las Cabras",8
+"Palmilla",8
+"Machali",8
+"Marchigue",8
+"Longavi",9
+"Pelluhue",9
+"Romeral",9
+"Pencahue",9
+"Isla De Pascua",6
+"Pica",2
+"Trehuaco",10
+"Galvarino",12
+"Andacollo",5
+"Curarrehue",12
+"Ercilla",12
+"Lonquimay",12
+"Palena",14
+"Purranque",14
+"Quellon",14
+"Quinchao",14
+"Antuco",11
+"Coinco",8
+"Requinoa",8
+"Codegua",8
+"Malloa",8
+"Puren",12
+"Olivar",8
+"Chepica",8
+"Peumo",8
+"Pumanque",8
+"Tortel",15
+"Perquenco",12
+"Tolten",12
+"Maullin",14
+"Queilen",14
+"Chaiten",14
+"Curaco De Velez",14
+"Dalcahue",14
+"Quemchi",14
+"Mafil",13
+"Cabo De Hornos(Ex-Navarino)",16
+"Timaukel",16
+"Torres Del Paine",16
+"Panquehue",6
+"Alto Biobio",11
+"Santa Barbara",11
+"Placilla",8
+"Licanten",9
+"Alhue",7
+"Puqueldon",14
+"San Gregorio",16
+"Juan Fernandez",6
+"Portezuelo",10
+"Cobquecura",10
+"San Fabian",10
+"Quilaco",11
+"Ninhue",10
+"Litueche",8
+"Hualañe",9
+"Primavera",16
+"Antartica",16
