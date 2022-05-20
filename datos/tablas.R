@@ -117,8 +117,6 @@ afiliacion_partidos <- afiliacion_partidos[muestra, ]
 
 rownames(afiliacion_partidos) <- NULL # Reinicio nombre de filas.
 
-afiliacion_partidos$id <- as.integer(rownames(afiliacion_partidos))
-
 rm(length_df, i, categoria_id, partido_id, edad_id,
    genero_id, comuna_id, region_id, muestra, categoria_index,
    partido_index, edad_index, genero_index, comuna_index,
