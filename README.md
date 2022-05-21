@@ -32,7 +32,7 @@ La relación de estas tablas se observa en el diagrama de a continuación.
 
 ![Diagrama de relación de tablas.](./img/diagrama-relaciones.png)
 
-Usando el lenguaje de programación R limpié un poco la base de datos y luego cree las tablas mencionadas arriba, las que exporté como archivos `.csv` a la carpeta [tablas](./tablas/). Los scripts de este proceso están en el directorio [datos](./datos/).
+Usando R, limpié un poco la base de datos y luego cree las tablas mencionadas arriba. Como mi idea es usarla solo para practicar, decidí reducir `afiliacion` a 150 mil filas (originalmente son más de 500 mil). Posteriormente, exporté estos conjuntos como archivos `.csv` a la carpeta [tablas](./tablas/). Los scripts de este proceso están en el directorio [datos](./datos/).
 
-Finalmente, en PostgreSQL cree una base de datos llamada `afiliacion_db` y en ella almacené las tablas, las que llené importando los archivos que están en [tablas](./tablas/). El script de dicho proceso y aquel donde practico un poco realizando algunas consultas están en la carpeta [scripts](./scripts/).
+Finalmente, en PostgreSQL cree una base de datos llamada `afiliacion_db` y en ella almacené las tablas que completé importando los archivos que están en [tablas](./tablas/). El script de dicho proceso y aquel donde practico un poco realizando algunas consultas están en la carpeta [scripts](./scripts/).
 
