@@ -3,18 +3,45 @@
     Más info del comando \copy en:
     https://www.postgresql.org/docs/current/app-psql.html
 */
--- Creando la base de datos.
+
+/*
+==================================================
+  1. Creación de la base de datos y de su esquema.
+==================================================
+*/
+
+-- 1.1 Creando la base de datos.
 DROP DATABASE IF EXISTS afiliacion_db;
 
 CREATE DATABASE afiliacion_db;
 
-/* 
-==========================
-  Creando las tablas.
-==========================
+-- 1.2 Se crea un esquema y se define el `search_path` para éste.
+DROP SCHEMA IF EXISTS afiliacion_sch CASCADE;
+
+CREATE SCHEMA afiliacion_sch;
+
+ALTER DATABASE afiliacion_db
+SET search_path TO "$user",afiliacion_sch;
+
+/*
+Si queremos reiniciar el `search_path`, ejecutamos el comando:
+
+ALTER DATABASE afiliacion_db
+RESET search_path;
+
+Y luego nos reconectamos con \c afiliacion_db
+
+Posteriormente, para verificar corremos `SHOW search_path;`.
 */
 
--- 1. Categoria.
+
+/* 
+============================
+  2. Creación de las tablas.
+============================
+*/
+
+-- 2.1 Categoria.
 DROP TABLE IF EXISTS categoria CASCADE; -- CASCADE quita la FK de tablas vinculadas a esta.
 
 CREATE TABLE categoria (
@@ -24,7 +51,7 @@ CREATE TABLE categoria (
 
 \copy categoria (categoria) FROM '..\tablas\categoria.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
--- 2. Género.
+-- 2.2 Género.
 DROP TABLE IF EXISTS genero CASCADE;
 
 CREATE TABLE genero (
@@ -34,7 +61,7 @@ CREATE TABLE genero (
 
 \copy genero (genero) FROM '..\tablas\genero.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
--- 3. Rango etáreo.
+-- 2.3 Rango etáreo.
 DROP TABLE IF EXISTS rango_edad CASCADE;
 
 CREATE TABLE rango_edad (
@@ -44,7 +71,7 @@ CREATE TABLE rango_edad (
 
 \copy rango_edad (rango_edad) FROM '..\tablas\rango-edad.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
--- 4. Partidos.
+-- 2.4 Partidos.
 DROP TABLE IF EXISTS partidos CASCADE;
 
 CREATE TABLE partidos (
@@ -56,7 +83,7 @@ CREATE TABLE partidos (
 
 \copy partidos (partido, sigla_partido) FROM '..\tablas\partidos.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
--- 5. Regiones.
+-- 2.5 Regiones.
 DROP TABLE IF EXISTS regiones CASCADE;
 
 CREATE TABLE regiones (
@@ -66,7 +93,7 @@ CREATE TABLE regiones (
 
 \copy regiones (region) FROM '..\tablas\regiones.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
--- 6. Comunas.
+-- 2.6 Comunas.
 DROP TABLE IF EXISTS comunas CASCADE;
 
 CREATE TABLE comunas (
@@ -82,7 +109,7 @@ CREATE TABLE comunas (
 
 \copy comunas (comuna, region_id) FROM '..\tablas\comunas.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, ENCODING 'utf8')
 
--- 7. Afiliacion partidos.
+-- 2.7 Afiliacion partidos.
 DROP TABLE IF EXISTS afiliacion CASCADE;
 
 CREATE TABLE afiliacion (

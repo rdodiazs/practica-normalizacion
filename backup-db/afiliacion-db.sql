@@ -5,8 +5,6 @@
 -- Dumped from database version 13.3
 -- Dumped by pg_dump version 13.3
 
--- Started on 2022-05-22 13:18:45
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -20,14 +18,13 @@ SET row_security = off;
 
 DROP DATABASE afiliacion_db;
 --
--- TOC entry 3075 (class 1262 OID 16464)
--- Name: afiliacion_db; Type: DATABASE; Schema: -; Owner: practica_pg
+-- Name: afiliacion_db; Type: DATABASE; Schema: -; Owner: postgres
 --
 
 CREATE DATABASE afiliacion_db WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'Spanish_Chile.1252';
 
 
-ALTER DATABASE afiliacion_db OWNER TO practica_pg;
+ALTER DATABASE afiliacion_db OWNER TO postgres;
 
 \connect afiliacion_db
 
@@ -42,16 +39,44 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+--
+-- Name: afiliacion_db; Type: DATABASE PROPERTIES; Schema: -; Owner: postgres
+--
+
+ALTER DATABASE afiliacion_db SET search_path TO '$user', 'afiliacion_sch';
+
+
+\connect afiliacion_db
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: afiliacion_sch; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA afiliacion_sch;
+
+
+ALTER SCHEMA afiliacion_sch OWNER TO postgres;
+
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- TOC entry 213 (class 1259 OID 16728)
--- Name: afiliacion; Type: TABLE; Schema: public; Owner: practica_pg
+-- Name: afiliacion; Type: TABLE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE TABLE public.afiliacion (
+CREATE TABLE afiliacion_sch.afiliacion (
     id integer NOT NULL,
     categoria_id integer NOT NULL,
     partido_id integer NOT NULL,
@@ -62,14 +87,13 @@ CREATE TABLE public.afiliacion (
 );
 
 
-ALTER TABLE public.afiliacion OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.afiliacion OWNER TO postgres;
 
 --
--- TOC entry 212 (class 1259 OID 16726)
--- Name: afiliacion_id_seq; Type: SEQUENCE; Schema: public; Owner: practica_pg
+-- Name: afiliacion_id_seq; Type: SEQUENCE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE SEQUENCE public.afiliacion_id_seq
+CREATE SEQUENCE afiliacion_sch.afiliacion_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -78,36 +102,32 @@ CREATE SEQUENCE public.afiliacion_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.afiliacion_id_seq OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.afiliacion_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3077 (class 0 OID 0)
--- Dependencies: 212
--- Name: afiliacion_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: practica_pg
+-- Name: afiliacion_id_seq; Type: SEQUENCE OWNED BY; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER SEQUENCE public.afiliacion_id_seq OWNED BY public.afiliacion.id;
+ALTER SEQUENCE afiliacion_sch.afiliacion_id_seq OWNED BY afiliacion_sch.afiliacion.id;
 
 
 --
--- TOC entry 201 (class 1259 OID 16662)
--- Name: categoria; Type: TABLE; Schema: public; Owner: practica_pg
+-- Name: categoria; Type: TABLE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE TABLE public.categoria (
+CREATE TABLE afiliacion_sch.categoria (
     id integer NOT NULL,
     categoria character varying(20) NOT NULL
 );
 
 
-ALTER TABLE public.categoria OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.categoria OWNER TO postgres;
 
 --
--- TOC entry 200 (class 1259 OID 16660)
--- Name: categoria_id_seq; Type: SEQUENCE; Schema: public; Owner: practica_pg
+-- Name: categoria_id_seq; Type: SEQUENCE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE SEQUENCE public.categoria_id_seq
+CREATE SEQUENCE afiliacion_sch.categoria_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -116,37 +136,33 @@ CREATE SEQUENCE public.categoria_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.categoria_id_seq OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.categoria_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3079 (class 0 OID 0)
--- Dependencies: 200
--- Name: categoria_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: practica_pg
+-- Name: categoria_id_seq; Type: SEQUENCE OWNED BY; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER SEQUENCE public.categoria_id_seq OWNED BY public.categoria.id;
+ALTER SEQUENCE afiliacion_sch.categoria_id_seq OWNED BY afiliacion_sch.categoria.id;
 
 
 --
--- TOC entry 211 (class 1259 OID 16713)
--- Name: comunas; Type: TABLE; Schema: public; Owner: practica_pg
+-- Name: comunas; Type: TABLE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE TABLE public.comunas (
+CREATE TABLE afiliacion_sch.comunas (
     id integer NOT NULL,
     comuna character varying(70) NOT NULL,
     region_id integer NOT NULL
 );
 
 
-ALTER TABLE public.comunas OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.comunas OWNER TO postgres;
 
 --
--- TOC entry 210 (class 1259 OID 16711)
--- Name: comunas_id_seq; Type: SEQUENCE; Schema: public; Owner: practica_pg
+-- Name: comunas_id_seq; Type: SEQUENCE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE SEQUENCE public.comunas_id_seq
+CREATE SEQUENCE afiliacion_sch.comunas_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -155,36 +171,32 @@ CREATE SEQUENCE public.comunas_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.comunas_id_seq OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.comunas_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3081 (class 0 OID 0)
--- Dependencies: 210
--- Name: comunas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: practica_pg
+-- Name: comunas_id_seq; Type: SEQUENCE OWNED BY; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER SEQUENCE public.comunas_id_seq OWNED BY public.comunas.id;
+ALTER SEQUENCE afiliacion_sch.comunas_id_seq OWNED BY afiliacion_sch.comunas.id;
 
 
 --
--- TOC entry 203 (class 1259 OID 16672)
--- Name: genero; Type: TABLE; Schema: public; Owner: practica_pg
+-- Name: genero; Type: TABLE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE TABLE public.genero (
+CREATE TABLE afiliacion_sch.genero (
     id integer NOT NULL,
     genero character varying(15) NOT NULL
 );
 
 
-ALTER TABLE public.genero OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.genero OWNER TO postgres;
 
 --
--- TOC entry 202 (class 1259 OID 16670)
--- Name: genero_id_seq; Type: SEQUENCE; Schema: public; Owner: practica_pg
+-- Name: genero_id_seq; Type: SEQUENCE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE SEQUENCE public.genero_id_seq
+CREATE SEQUENCE afiliacion_sch.genero_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -193,37 +205,33 @@ CREATE SEQUENCE public.genero_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.genero_id_seq OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.genero_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3083 (class 0 OID 0)
--- Dependencies: 202
--- Name: genero_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: practica_pg
+-- Name: genero_id_seq; Type: SEQUENCE OWNED BY; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER SEQUENCE public.genero_id_seq OWNED BY public.genero.id;
+ALTER SEQUENCE afiliacion_sch.genero_id_seq OWNED BY afiliacion_sch.genero.id;
 
 
 --
--- TOC entry 207 (class 1259 OID 16693)
--- Name: partidos; Type: TABLE; Schema: public; Owner: practica_pg
+-- Name: partidos; Type: TABLE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE TABLE public.partidos (
+CREATE TABLE afiliacion_sch.partidos (
     id integer NOT NULL,
     partido character varying(50) NOT NULL,
     sigla_partido character varying(15) NOT NULL
 );
 
 
-ALTER TABLE public.partidos OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.partidos OWNER TO postgres;
 
 --
--- TOC entry 206 (class 1259 OID 16691)
--- Name: partidos_id_seq; Type: SEQUENCE; Schema: public; Owner: practica_pg
+-- Name: partidos_id_seq; Type: SEQUENCE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE SEQUENCE public.partidos_id_seq
+CREATE SEQUENCE afiliacion_sch.partidos_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -232,36 +240,32 @@ CREATE SEQUENCE public.partidos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.partidos_id_seq OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.partidos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3085 (class 0 OID 0)
--- Dependencies: 206
--- Name: partidos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: practica_pg
+-- Name: partidos_id_seq; Type: SEQUENCE OWNED BY; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER SEQUENCE public.partidos_id_seq OWNED BY public.partidos.id;
+ALTER SEQUENCE afiliacion_sch.partidos_id_seq OWNED BY afiliacion_sch.partidos.id;
 
 
 --
--- TOC entry 205 (class 1259 OID 16682)
--- Name: rango_edad; Type: TABLE; Schema: public; Owner: practica_pg
+-- Name: rango_edad; Type: TABLE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE TABLE public.rango_edad (
+CREATE TABLE afiliacion_sch.rango_edad (
     id integer NOT NULL,
     rango_edad character varying(20) NOT NULL
 );
 
 
-ALTER TABLE public.rango_edad OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.rango_edad OWNER TO postgres;
 
 --
--- TOC entry 204 (class 1259 OID 16680)
--- Name: rango_edad_id_seq; Type: SEQUENCE; Schema: public; Owner: practica_pg
+-- Name: rango_edad_id_seq; Type: SEQUENCE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE SEQUENCE public.rango_edad_id_seq
+CREATE SEQUENCE afiliacion_sch.rango_edad_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -270,36 +274,32 @@ CREATE SEQUENCE public.rango_edad_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.rango_edad_id_seq OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.rango_edad_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3087 (class 0 OID 0)
--- Dependencies: 204
--- Name: rango_edad_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: practica_pg
+-- Name: rango_edad_id_seq; Type: SEQUENCE OWNED BY; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER SEQUENCE public.rango_edad_id_seq OWNED BY public.rango_edad.id;
+ALTER SEQUENCE afiliacion_sch.rango_edad_id_seq OWNED BY afiliacion_sch.rango_edad.id;
 
 
 --
--- TOC entry 209 (class 1259 OID 16703)
--- Name: regiones; Type: TABLE; Schema: public; Owner: practica_pg
+-- Name: regiones; Type: TABLE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE TABLE public.regiones (
+CREATE TABLE afiliacion_sch.regiones (
     id integer NOT NULL,
     region character varying(50) NOT NULL
 );
 
 
-ALTER TABLE public.regiones OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.regiones OWNER TO postgres;
 
 --
--- TOC entry 208 (class 1259 OID 16701)
--- Name: regiones_id_seq; Type: SEQUENCE; Schema: public; Owner: practica_pg
+-- Name: regiones_id_seq; Type: SEQUENCE; Schema: afiliacion_sch; Owner: postgres
 --
 
-CREATE SEQUENCE public.regiones_id_seq
+CREATE SEQUENCE afiliacion_sch.regiones_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -308,80 +308,69 @@ CREATE SEQUENCE public.regiones_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.regiones_id_seq OWNER TO practica_pg;
+ALTER TABLE afiliacion_sch.regiones_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3089 (class 0 OID 0)
--- Dependencies: 208
--- Name: regiones_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: practica_pg
+-- Name: regiones_id_seq; Type: SEQUENCE OWNED BY; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER SEQUENCE public.regiones_id_seq OWNED BY public.regiones.id;
+ALTER SEQUENCE afiliacion_sch.regiones_id_seq OWNED BY afiliacion_sch.regiones.id;
 
 
 --
--- TOC entry 2892 (class 2604 OID 16731)
--- Name: afiliacion id; Type: DEFAULT; Schema: public; Owner: practica_pg
+-- Name: afiliacion id; Type: DEFAULT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.afiliacion ALTER COLUMN id SET DEFAULT nextval('public.afiliacion_id_seq'::regclass);
-
-
---
--- TOC entry 2886 (class 2604 OID 16665)
--- Name: categoria id; Type: DEFAULT; Schema: public; Owner: practica_pg
---
-
-ALTER TABLE ONLY public.categoria ALTER COLUMN id SET DEFAULT nextval('public.categoria_id_seq'::regclass);
+ALTER TABLE ONLY afiliacion_sch.afiliacion ALTER COLUMN id SET DEFAULT nextval('afiliacion_sch.afiliacion_id_seq'::regclass);
 
 
 --
--- TOC entry 2891 (class 2604 OID 16716)
--- Name: comunas id; Type: DEFAULT; Schema: public; Owner: practica_pg
+-- Name: categoria id; Type: DEFAULT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.comunas ALTER COLUMN id SET DEFAULT nextval('public.comunas_id_seq'::regclass);
-
-
---
--- TOC entry 2887 (class 2604 OID 16675)
--- Name: genero id; Type: DEFAULT; Schema: public; Owner: practica_pg
---
-
-ALTER TABLE ONLY public.genero ALTER COLUMN id SET DEFAULT nextval('public.genero_id_seq'::regclass);
+ALTER TABLE ONLY afiliacion_sch.categoria ALTER COLUMN id SET DEFAULT nextval('afiliacion_sch.categoria_id_seq'::regclass);
 
 
 --
--- TOC entry 2889 (class 2604 OID 16696)
--- Name: partidos id; Type: DEFAULT; Schema: public; Owner: practica_pg
+-- Name: comunas id; Type: DEFAULT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.partidos ALTER COLUMN id SET DEFAULT nextval('public.partidos_id_seq'::regclass);
-
-
---
--- TOC entry 2888 (class 2604 OID 16685)
--- Name: rango_edad id; Type: DEFAULT; Schema: public; Owner: practica_pg
---
-
-ALTER TABLE ONLY public.rango_edad ALTER COLUMN id SET DEFAULT nextval('public.rango_edad_id_seq'::regclass);
+ALTER TABLE ONLY afiliacion_sch.comunas ALTER COLUMN id SET DEFAULT nextval('afiliacion_sch.comunas_id_seq'::regclass);
 
 
 --
--- TOC entry 2890 (class 2604 OID 16706)
--- Name: regiones id; Type: DEFAULT; Schema: public; Owner: practica_pg
+-- Name: genero id; Type: DEFAULT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.regiones ALTER COLUMN id SET DEFAULT nextval('public.regiones_id_seq'::regclass);
+ALTER TABLE ONLY afiliacion_sch.genero ALTER COLUMN id SET DEFAULT nextval('afiliacion_sch.genero_id_seq'::regclass);
 
 
 --
--- TOC entry 3069 (class 0 OID 16728)
--- Dependencies: 213
--- Data for Name: afiliacion; Type: TABLE DATA; Schema: public; Owner: practica_pg
+-- Name: partidos id; Type: DEFAULT; Schema: afiliacion_sch; Owner: postgres
 --
 
-COPY public.afiliacion (id, categoria_id, partido_id, edad_id, genero_id, comuna_id, region_id) FROM stdin;
+ALTER TABLE ONLY afiliacion_sch.partidos ALTER COLUMN id SET DEFAULT nextval('afiliacion_sch.partidos_id_seq'::regclass);
+
+
+--
+-- Name: rango_edad id; Type: DEFAULT; Schema: afiliacion_sch; Owner: postgres
+--
+
+ALTER TABLE ONLY afiliacion_sch.rango_edad ALTER COLUMN id SET DEFAULT nextval('afiliacion_sch.rango_edad_id_seq'::regclass);
+
+
+--
+-- Name: regiones id; Type: DEFAULT; Schema: afiliacion_sch; Owner: postgres
+--
+
+ALTER TABLE ONLY afiliacion_sch.regiones ALTER COLUMN id SET DEFAULT nextval('afiliacion_sch.regiones_id_seq'::regclass);
+
+
+--
+-- Data for Name: afiliacion; Type: TABLE DATA; Schema: afiliacion_sch; Owner: postgres
+--
+
+COPY afiliacion_sch.afiliacion (id, categoria_id, partido_id, edad_id, genero_id, comuna_id, region_id) FROM stdin;
 1	1	11	6	2	249	8
 2	2	8	5	2	106	12
 3	2	12	6	1	82	9
@@ -150386,24 +150375,20 @@ COPY public.afiliacion (id, categoria_id, partido_id, edad_id, genero_id, comuna
 
 
 --
--- TOC entry 3057 (class 0 OID 16662)
--- Dependencies: 201
--- Data for Name: categoria; Type: TABLE DATA; Schema: public; Owner: practica_pg
+-- Data for Name: categoria; Type: TABLE DATA; Schema: afiliacion_sch; Owner: postgres
 --
 
-COPY public.categoria (id, categoria) FROM stdin;
+COPY afiliacion_sch.categoria (id, categoria) FROM stdin;
 1	Nuevo
 2	Ratificado
 \.
 
 
 --
--- TOC entry 3067 (class 0 OID 16713)
--- Dependencies: 211
--- Data for Name: comunas; Type: TABLE DATA; Schema: public; Owner: practica_pg
+-- Data for Name: comunas; Type: TABLE DATA; Schema: afiliacion_sch; Owner: postgres
 --
 
-COPY public.comunas (id, comuna, region_id) FROM stdin;
+COPY afiliacion_sch.comunas (id, comuna, region_id) FROM stdin;
 1	Alto Hospicio	2
 2	Iquique	2
 3	Camiña	2
@@ -150755,24 +150740,20 @@ COPY public.comunas (id, comuna, region_id) FROM stdin;
 
 
 --
--- TOC entry 3059 (class 0 OID 16672)
--- Dependencies: 203
--- Data for Name: genero; Type: TABLE DATA; Schema: public; Owner: practica_pg
+-- Data for Name: genero; Type: TABLE DATA; Schema: afiliacion_sch; Owner: postgres
 --
 
-COPY public.genero (id, genero) FROM stdin;
+COPY afiliacion_sch.genero (id, genero) FROM stdin;
 1	Femenino
 2	Masculino
 \.
 
 
 --
--- TOC entry 3063 (class 0 OID 16693)
--- Dependencies: 207
--- Data for Name: partidos; Type: TABLE DATA; Schema: public; Owner: practica_pg
+-- Data for Name: partidos; Type: TABLE DATA; Schema: afiliacion_sch; Owner: postgres
 --
 
-COPY public.partidos (id, partido, sigla_partido) FROM stdin;
+COPY afiliacion_sch.partidos (id, partido, sigla_partido) FROM stdin;
 1	EVOLUCION POLITICA	EVOPOLI
 2	IGUALDAD	IGUALDAD
 3	NUEVO TIEMPO	NT
@@ -150803,12 +150784,10 @@ COPY public.partidos (id, partido, sigla_partido) FROM stdin;
 
 
 --
--- TOC entry 3061 (class 0 OID 16682)
--- Dependencies: 205
--- Data for Name: rango_edad; Type: TABLE DATA; Schema: public; Owner: practica_pg
+-- Data for Name: rango_edad; Type: TABLE DATA; Schema: afiliacion_sch; Owner: postgres
 --
 
-COPY public.rango_edad (id, rango_edad) FROM stdin;
+COPY afiliacion_sch.rango_edad (id, rango_edad) FROM stdin;
 1	18 a 19 años
 2	20-24 años
 3	25-29 años
@@ -150827,12 +150806,10 @@ COPY public.rango_edad (id, rango_edad) FROM stdin;
 
 
 --
--- TOC entry 3065 (class 0 OID 16703)
--- Dependencies: 209
--- Data for Name: regiones; Type: TABLE DATA; Schema: public; Owner: practica_pg
+-- Data for Name: regiones; Type: TABLE DATA; Schema: afiliacion_sch; Owner: postgres
 --
 
-COPY public.regiones (id, region) FROM stdin;
+COPY afiliacion_sch.regiones (id, region) FROM stdin;
 1	Arica Y Parinacota
 2	De Tarapaca
 3	De Antofagasta
@@ -150854,312 +150831,213 @@ COPY public.regiones (id, region) FROM stdin;
 
 
 --
--- TOC entry 3090 (class 0 OID 0)
--- Dependencies: 212
--- Name: afiliacion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: practica_pg
+-- Name: afiliacion_id_seq; Type: SEQUENCE SET; Schema: afiliacion_sch; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.afiliacion_id_seq', 150000, true);
+SELECT pg_catalog.setval('afiliacion_sch.afiliacion_id_seq', 150000, true);
 
 
 --
--- TOC entry 3091 (class 0 OID 0)
--- Dependencies: 200
--- Name: categoria_id_seq; Type: SEQUENCE SET; Schema: public; Owner: practica_pg
+-- Name: categoria_id_seq; Type: SEQUENCE SET; Schema: afiliacion_sch; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.categoria_id_seq', 2, true);
+SELECT pg_catalog.setval('afiliacion_sch.categoria_id_seq', 2, true);
 
 
 --
--- TOC entry 3092 (class 0 OID 0)
--- Dependencies: 210
--- Name: comunas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: practica_pg
+-- Name: comunas_id_seq; Type: SEQUENCE SET; Schema: afiliacion_sch; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.comunas_id_seq', 347, true);
+SELECT pg_catalog.setval('afiliacion_sch.comunas_id_seq', 347, true);
 
 
 --
--- TOC entry 3093 (class 0 OID 0)
--- Dependencies: 202
--- Name: genero_id_seq; Type: SEQUENCE SET; Schema: public; Owner: practica_pg
+-- Name: genero_id_seq; Type: SEQUENCE SET; Schema: afiliacion_sch; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.genero_id_seq', 2, true);
+SELECT pg_catalog.setval('afiliacion_sch.genero_id_seq', 2, true);
 
 
 --
--- TOC entry 3094 (class 0 OID 0)
--- Dependencies: 206
--- Name: partidos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: practica_pg
+-- Name: partidos_id_seq; Type: SEQUENCE SET; Schema: afiliacion_sch; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.partidos_id_seq', 26, true);
+SELECT pg_catalog.setval('afiliacion_sch.partidos_id_seq', 26, true);
 
 
 --
--- TOC entry 3095 (class 0 OID 0)
--- Dependencies: 204
--- Name: rango_edad_id_seq; Type: SEQUENCE SET; Schema: public; Owner: practica_pg
+-- Name: rango_edad_id_seq; Type: SEQUENCE SET; Schema: afiliacion_sch; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.rango_edad_id_seq', 14, true);
+SELECT pg_catalog.setval('afiliacion_sch.rango_edad_id_seq', 14, true);
 
 
 --
--- TOC entry 3096 (class 0 OID 0)
--- Dependencies: 208
--- Name: regiones_id_seq; Type: SEQUENCE SET; Schema: public; Owner: practica_pg
+-- Name: regiones_id_seq; Type: SEQUENCE SET; Schema: afiliacion_sch; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.regiones_id_seq', 17, true);
+SELECT pg_catalog.setval('afiliacion_sch.regiones_id_seq', 17, true);
 
 
 --
--- TOC entry 2918 (class 2606 OID 16733)
--- Name: afiliacion afiliacion_pkey; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: afiliacion afiliacion_pkey; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.afiliacion
+ALTER TABLE ONLY afiliacion_sch.afiliacion
     ADD CONSTRAINT afiliacion_pkey PRIMARY KEY (id);
 
 
 --
--- TOC entry 2894 (class 2606 OID 16669)
--- Name: categoria categoria_categoria_key; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: categoria categoria_categoria_key; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.categoria
+ALTER TABLE ONLY afiliacion_sch.categoria
     ADD CONSTRAINT categoria_categoria_key UNIQUE (categoria);
 
 
 --
--- TOC entry 2896 (class 2606 OID 16667)
--- Name: categoria categoria_pkey; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: categoria categoria_pkey; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.categoria
+ALTER TABLE ONLY afiliacion_sch.categoria
     ADD CONSTRAINT categoria_pkey PRIMARY KEY (id);
 
 
 --
--- TOC entry 2914 (class 2606 OID 16720)
--- Name: comunas comunas_comuna_key; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: comunas comunas_comuna_key; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.comunas
+ALTER TABLE ONLY afiliacion_sch.comunas
     ADD CONSTRAINT comunas_comuna_key UNIQUE (comuna);
 
 
 --
--- TOC entry 2916 (class 2606 OID 16718)
--- Name: comunas comunas_pkey; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: comunas comunas_pkey; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.comunas
+ALTER TABLE ONLY afiliacion_sch.comunas
     ADD CONSTRAINT comunas_pkey PRIMARY KEY (id);
 
 
 --
--- TOC entry 2898 (class 2606 OID 16679)
--- Name: genero genero_genero_key; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: genero genero_genero_key; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.genero
+ALTER TABLE ONLY afiliacion_sch.genero
     ADD CONSTRAINT genero_genero_key UNIQUE (genero);
 
 
 --
--- TOC entry 2900 (class 2606 OID 16677)
--- Name: genero genero_pkey; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: genero genero_pkey; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.genero
+ALTER TABLE ONLY afiliacion_sch.genero
     ADD CONSTRAINT genero_pkey PRIMARY KEY (id);
 
 
 --
--- TOC entry 2906 (class 2606 OID 16700)
--- Name: partidos partidos_partido_sigla_partido_key; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: partidos partidos_partido_sigla_partido_key; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.partidos
+ALTER TABLE ONLY afiliacion_sch.partidos
     ADD CONSTRAINT partidos_partido_sigla_partido_key UNIQUE (partido, sigla_partido);
 
 
 --
--- TOC entry 2908 (class 2606 OID 16698)
--- Name: partidos partidos_pkey; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: partidos partidos_pkey; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.partidos
+ALTER TABLE ONLY afiliacion_sch.partidos
     ADD CONSTRAINT partidos_pkey PRIMARY KEY (id);
 
 
 --
--- TOC entry 2902 (class 2606 OID 16687)
--- Name: rango_edad rango_edad_pkey; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: rango_edad rango_edad_pkey; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.rango_edad
+ALTER TABLE ONLY afiliacion_sch.rango_edad
     ADD CONSTRAINT rango_edad_pkey PRIMARY KEY (id);
 
 
 --
--- TOC entry 2904 (class 2606 OID 16689)
--- Name: rango_edad rango_edad_rango_edad_key; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: rango_edad rango_edad_rango_edad_key; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.rango_edad
+ALTER TABLE ONLY afiliacion_sch.rango_edad
     ADD CONSTRAINT rango_edad_rango_edad_key UNIQUE (rango_edad);
 
 
 --
--- TOC entry 2910 (class 2606 OID 16708)
--- Name: regiones regiones_pkey; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: regiones regiones_pkey; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.regiones
+ALTER TABLE ONLY afiliacion_sch.regiones
     ADD CONSTRAINT regiones_pkey PRIMARY KEY (id);
 
 
 --
--- TOC entry 2912 (class 2606 OID 16710)
--- Name: regiones regiones_region_key; Type: CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: regiones regiones_region_key; Type: CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.regiones
+ALTER TABLE ONLY afiliacion_sch.regiones
     ADD CONSTRAINT regiones_region_key UNIQUE (region);
 
 
 --
--- TOC entry 2920 (class 2606 OID 16734)
--- Name: afiliacion afiliacion_categoria_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: afiliacion afiliacion_categoria_id_fkey; Type: FK CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.afiliacion
-    ADD CONSTRAINT afiliacion_categoria_id_fkey FOREIGN KEY (categoria_id) REFERENCES public.categoria(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- TOC entry 2924 (class 2606 OID 16754)
--- Name: afiliacion afiliacion_comuna_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: practica_pg
---
-
-ALTER TABLE ONLY public.afiliacion
-    ADD CONSTRAINT afiliacion_comuna_id_fkey FOREIGN KEY (comuna_id) REFERENCES public.comunas(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE ONLY afiliacion_sch.afiliacion
+    ADD CONSTRAINT afiliacion_categoria_id_fkey FOREIGN KEY (categoria_id) REFERENCES afiliacion_sch.categoria(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
--- TOC entry 2922 (class 2606 OID 16744)
--- Name: afiliacion afiliacion_edad_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: afiliacion afiliacion_comuna_id_fkey; Type: FK CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.afiliacion
-    ADD CONSTRAINT afiliacion_edad_id_fkey FOREIGN KEY (edad_id) REFERENCES public.rango_edad(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- TOC entry 2923 (class 2606 OID 16749)
--- Name: afiliacion afiliacion_genero_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: practica_pg
---
-
-ALTER TABLE ONLY public.afiliacion
-    ADD CONSTRAINT afiliacion_genero_id_fkey FOREIGN KEY (genero_id) REFERENCES public.genero(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE ONLY afiliacion_sch.afiliacion
+    ADD CONSTRAINT afiliacion_comuna_id_fkey FOREIGN KEY (comuna_id) REFERENCES afiliacion_sch.comunas(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
--- TOC entry 2921 (class 2606 OID 16739)
--- Name: afiliacion afiliacion_partido_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: afiliacion afiliacion_edad_id_fkey; Type: FK CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.afiliacion
-    ADD CONSTRAINT afiliacion_partido_id_fkey FOREIGN KEY (partido_id) REFERENCES public.partidos(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- TOC entry 2925 (class 2606 OID 16759)
--- Name: afiliacion afiliacion_region_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: practica_pg
---
-
-ALTER TABLE ONLY public.afiliacion
-    ADD CONSTRAINT afiliacion_region_id_fkey FOREIGN KEY (region_id) REFERENCES public.regiones(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE ONLY afiliacion_sch.afiliacion
+    ADD CONSTRAINT afiliacion_edad_id_fkey FOREIGN KEY (edad_id) REFERENCES afiliacion_sch.rango_edad(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
--- TOC entry 2919 (class 2606 OID 16721)
--- Name: comunas region_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: practica_pg
+-- Name: afiliacion afiliacion_genero_id_fkey; Type: FK CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-ALTER TABLE ONLY public.comunas
-    ADD CONSTRAINT region_id_fkey FOREIGN KEY (region_id) REFERENCES public.regiones(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- TOC entry 3076 (class 0 OID 0)
--- Dependencies: 213
--- Name: TABLE afiliacion; Type: ACL; Schema: public; Owner: practica_pg
---
-
-GRANT SELECT ON TABLE public.afiliacion TO cursos_pg;
+ALTER TABLE ONLY afiliacion_sch.afiliacion
+    ADD CONSTRAINT afiliacion_genero_id_fkey FOREIGN KEY (genero_id) REFERENCES afiliacion_sch.genero(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
--- TOC entry 3078 (class 0 OID 0)
--- Dependencies: 201
--- Name: TABLE categoria; Type: ACL; Schema: public; Owner: practica_pg
+-- Name: afiliacion afiliacion_partido_id_fkey; Type: FK CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-GRANT SELECT ON TABLE public.categoria TO cursos_pg;
-
-
---
--- TOC entry 3080 (class 0 OID 0)
--- Dependencies: 211
--- Name: TABLE comunas; Type: ACL; Schema: public; Owner: practica_pg
---
-
-GRANT SELECT ON TABLE public.comunas TO cursos_pg;
+ALTER TABLE ONLY afiliacion_sch.afiliacion
+    ADD CONSTRAINT afiliacion_partido_id_fkey FOREIGN KEY (partido_id) REFERENCES afiliacion_sch.partidos(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
--- TOC entry 3082 (class 0 OID 0)
--- Dependencies: 203
--- Name: TABLE genero; Type: ACL; Schema: public; Owner: practica_pg
+-- Name: afiliacion afiliacion_region_id_fkey; Type: FK CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-GRANT SELECT ON TABLE public.genero TO cursos_pg;
-
-
---
--- TOC entry 3084 (class 0 OID 0)
--- Dependencies: 207
--- Name: TABLE partidos; Type: ACL; Schema: public; Owner: practica_pg
---
-
-GRANT SELECT ON TABLE public.partidos TO cursos_pg;
+ALTER TABLE ONLY afiliacion_sch.afiliacion
+    ADD CONSTRAINT afiliacion_region_id_fkey FOREIGN KEY (region_id) REFERENCES afiliacion_sch.regiones(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
--- TOC entry 3086 (class 0 OID 0)
--- Dependencies: 205
--- Name: TABLE rango_edad; Type: ACL; Schema: public; Owner: practica_pg
+-- Name: comunas region_id_fkey; Type: FK CONSTRAINT; Schema: afiliacion_sch; Owner: postgres
 --
 
-GRANT SELECT ON TABLE public.rango_edad TO cursos_pg;
+ALTER TABLE ONLY afiliacion_sch.comunas
+    ADD CONSTRAINT region_id_fkey FOREIGN KEY (region_id) REFERENCES afiliacion_sch.regiones(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
-
---
--- TOC entry 3088 (class 0 OID 0)
--- Dependencies: 209
--- Name: TABLE regiones; Type: ACL; Schema: public; Owner: practica_pg
---
-
-GRANT SELECT ON TABLE public.regiones TO cursos_pg;
-
-
--- Completed on 2022-05-22 13:18:49
 
 --
 -- PostgreSQL database dump complete
