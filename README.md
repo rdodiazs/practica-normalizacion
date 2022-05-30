@@ -1,6 +1,6 @@
 # Normalizando una base de datos.
 
-La idea de este repositorio fue, en primer lugar, aplicar la idea central de normalizar una base de datos, que es reducir lo más posible la redundancia de información para mejorar su gestión, y luego usarla para practicar un poco en PostgreSQL.
+La idea de este repositorio fue, en primer lugar, aplicar la idea central de normalizar una base de datos, que es reducir lo más posible la redundancia de información para mejorar su gestión y luego usarla para practicar un poco en PostgreSQL.
 
 La base de datos que utilizo contiene información descriptiva sobre el proceso de ratificación de militancia y de nuevos afiliados en partidos políticos de Chile, la que es construida y publicada por el Servicio Electoral (SERVEL). Ésta corresponde a la actualización del 31 de agosto de 2021 y puede ser descargada [acá](https://www.servel.cl/wp-content/uploads/2021/09/partidos20210831.csv). Más detalles sobre estas estadísticas pueden encontrarse en el [siguiente enlace](https://www.servel.cl/estadisticas-de-partidos-politicos/).
 
