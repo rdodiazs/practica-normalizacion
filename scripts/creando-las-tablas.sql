@@ -23,6 +23,8 @@ CREATE SCHEMA afiliacion_sch;
 ALTER DATABASE afiliacion_db
 SET search_path TO "$user",afiliacion_sch;
 
+\connect afiliacion_db
+
 /*
 Si queremos reiniciar el `search_path`, ejecutamos el comando:
 
